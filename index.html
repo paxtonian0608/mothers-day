@@ -56,7 +56,7 @@
 
         /* Main Content Styling */
         #main-content {
-            display: none; /* Changed to none to ensure it doesn't interfere with the button */
+            display: none; 
             flex-direction: column;
             align-items: center;
             padding: 50px 20px;
@@ -175,19 +175,16 @@
 
     <script>
         function enterSite() {
-            // Start the music
+
             const music = document.getElementById('bg-music');
             music.play();
 
-            // Hide entry screen
             const entry = document.getElementById('entry-screen');
             entry.style.opacity = '0';
             
-            // Show main content
             const content = document.getElementById('main-content');
             content.style.display = 'flex';
             
-            // Small delay to allow the display:flex to register before fading in
             setTimeout(() => {
                 content.style.opacity = '1';
                 entry.style.display = 'none';
