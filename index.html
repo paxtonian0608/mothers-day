@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Mother's Day!</title>
+    
+    <link rel="icon" type="image/png" href="https://png.pngtree.com/png-vector/20220428/ourmid/pngtree-smooth-glossy-heart-vector-file-ai-and-png-png-image_4557871.png">
+
     <style>
         /* Base Styling */
         body, html {
@@ -30,7 +33,7 @@
             justify-content: center;
             align-items: center;
             z-index: 100;
-            transition: opacity 1s ease-out, visibility 1s;
+            transition: opacity 1s ease-out;
         }
 
         .start-button {
@@ -51,9 +54,9 @@
             transform: scale(1.05);
         }
 
-        /* Main Content (Hidden initially) */
+        /* Main Content Styling */
         #main-content {
-            display: flex;
+            display: none; /* Changed to none to ensure it doesn't interfere with the button */
             flex-direction: column;
             align-items: center;
             padding: 50px 20px;
@@ -135,18 +138,15 @@
 </head>
 <body>
 
-    <!-- Entry Screen -->
     <div id="entry-screen">
         <h2 style="margin-bottom: 30px;">Paxton's Gift to You, Mom</h2>
         <button class="start-button" onclick="enterSite()">❤️ Open the Card ❤️</button>
     </div>
 
-    <!-- Audio Element -->
     <audio id="bg-music" loop>
         <source src="hey_mama.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Main Content -->
     <div id="main-content">
         <div class="card">
             <h1>Happy Mother's Day, Mom! 💐</h1>
@@ -182,11 +182,16 @@
             // Hide entry screen
             const entry = document.getElementById('entry-screen');
             entry.style.opacity = '0';
-            entry.style.visibility = 'hidden';
-
+            
             // Show main content
             const content = document.getElementById('main-content');
-            content.style.opacity = '1';
+            content.style.display = 'flex';
+            
+            // Small delay to allow the display:flex to register before fading in
+            setTimeout(() => {
+                content.style.opacity = '1';
+                entry.style.display = 'none';
+            }, 10);
         }
     </script>
 
